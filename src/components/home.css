@@ -1,0 +1,226 @@
+/* General container styling */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    animation: backgroundAnimation 8s ease infinite;
+}
+
+/* Background styling */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+    z-index: 1;
+    clip-path: circle(70% at right 30%);
+    animation: backgroundAnimation 8s ease infinite;
+}
+
+/* Content styling */
+.content {
+    position: relative;
+    display: flex;
+    z-index: 2;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    opacity: 0;
+    animation: fadeIn 2s forwards, contentMove 2s ease-out forwards;
+}
+
+/* Right section styling */
+.right {
+    max-width: 45%;
+    animation: rightMove 2s ease-out forwards;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.headline {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Button styling */
+.order-button {
+    background: #fff;
+    color: #ff7e5f;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: buttonPop 1s ease-out, buttonMove 2s ease-out forwards;
+}
+
+.order-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Left section styling */
+.left {
+    max-width: 45%;
+    text-align: center;
+    animation: leftMove 2s ease-out forwards;
+}
+
+.cake-image.large-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: zoomIn 1.5s forwards, imageMove 2s ease-out forwards;
+}
+
+.cake-image.large-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .right {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .left {
+        max-width: 100%;
+    }
+
+    .headline {
+        font-size: 2.4rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .order-button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+
+    .cake-image.large-image {
+        max-width: 90%;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+    }
+    50% {
+        background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+    }
+    100% {
+        background: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes contentMove {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rightMove {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes leftMove {
+    0% {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    to {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes imageMove {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes buttonPop {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes buttonMove {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
